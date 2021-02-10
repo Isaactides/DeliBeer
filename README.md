@@ -6,7 +6,7 @@ El nombre de nuestra aplicación web es el de "DeliBeer", en la cual se podrán 
 
 En esta web existirán dos tipos de usuarios:
 
- - **Usuario lite**:Será un usuario gratuito y podrá realizar compras de packs de cervezas predeterminados que irán variando cada mes. Los gastos de envío correrán a cuenta del usuario.
+ - **Usuario lite**: Será un usuario gratuito y podrá realizar compras de packs de cervezas predeterminados que irán variando cada mes. Los gastos de envío correrán a cuenta del usuario.
  - **Usuario premium**: Para poder ser un usuario premium se debera pagar una cuota anual de 20 euros y este usuario podrá realizar una selección de las cervezas que querrá incluir en su pack, teniendo acceso a todo el catálogo de cervezas. Además de tener las mismas ventajas    que el usuario premium. Los gastos de envío serán gratuitos.
 
 Como administradores de la página web tendremos acceso a la creación de los packs mensuales y a la modificación de la base de datos de cervezas.

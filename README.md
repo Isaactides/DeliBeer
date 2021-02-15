@@ -26,6 +26,7 @@ Los pack de cervezas serán los siguientes:
 - **Usuarios:** Cliente que realiza pedidos y escribe comentarios del producto.
 - **Pedidos:** Productos del catálago que han sido comprados por un usuario.
 - **PDFs:** Resumen del pedido realizado por el usuario.
+- **Comentario**: Comentario de los usuario sobre los packs de cerveza donde dejaran sus valoraciones sobre ellos
 
 ### Descripcion del servicio interno.
 - Se generará un PDF con el resumen del pedido y se enviará al correo de los usuarios.

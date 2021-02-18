@@ -19,4 +19,12 @@ public class GreetingController {
 		return "greeting_template";
 	}
 	
+	@GetMapping("/basic")
+	public String basic(Model model) {
+		model.addAttribute("name", "Ivan");
+		model.addAttribute("hello", false);
+		
+		return "basic";
+	}
+	
 }

@@ -1,9 +1,14 @@
 package com.example.helloworldspring;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -15,17 +20,21 @@ public class PackCerveza {
 	
 	private String nombre;
 	private int numCervezas;
-	private Long precio;
+	private double precio;
+	
+	@OneToMany(mappedBy = "pack", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Comentario> comentarios = new ArrayList<>();
 	
 	public PackCerveza() {	
 	}
 	
-	public PackCerveza(String nombre, int numCervezas, long precio) {
+	public PackCerveza(String nombre, int numCervezas, double precio) {
 		super();
 		this.nombre = nombre;
 		this.numCervezas = numCervezas;
 		this.precio = precio;
 	}
+	
 
 	public Long getId() {
 		return id;
@@ -51,11 +60,11 @@ public class PackCerveza {
 		this.numCervezas = numCervezas;
 	}
 
-	public Long getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Long precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
@@ -65,6 +74,18 @@ public class PackCerveza {
 				+ "]";
 	}
 	
+	public void removeComentario(Comentario comentario) {
+		comentarios.remove(comentario);
+		comentario.setPack(null);
+	}
 	
+	public void addComentario(Comentario comentario) {
+		comentarios.add(comentario);
+		comentario.setPack(this);
+	}
+	
+	public List<Comentario> getComentarios(){
+		return comentarios;
+	}
 	
 }

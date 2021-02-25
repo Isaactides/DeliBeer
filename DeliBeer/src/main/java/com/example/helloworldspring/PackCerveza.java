@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class PackCerveza {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

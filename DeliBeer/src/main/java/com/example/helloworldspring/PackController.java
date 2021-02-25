@@ -49,6 +49,7 @@ public class PackController {
 		
 		packs.save(p);
 		
+		
 		PackCerveza p1 = new PackCerveza();
 		p1.setNombre("Inicial");
 		p1.setNumCervezas(5);

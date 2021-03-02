@@ -59,6 +59,24 @@ public class PackController {
 		
 		packs.save(p1);
 		
+		PackCerveza p2 = new PackCerveza();
+		p1.setNombre("Profesional");
+		p1.setNumCervezas(8);
+		p1.setPrecio(31.5);
+		p1.addComentario(new Comentario("meh", 3));
+		p1.addComentario(new Comentario("me agrada", 5));
+		
+		packs.save(p2);
+		
+		PackCerveza p3 = new PackCerveza();
+		p1.setNombre("Fiesta");
+		p1.setNumCervezas(10);
+		p1.setPrecio(22.0);
+		p1.addComentario(new Comentario("Tremendo fieston", 9));
+		p1.addComentario(new Comentario("perfecto para un Project X, con pibitas", 10));
+		
+		packs.save(p3);
+		
 		
 		
 	}

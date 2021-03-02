@@ -5,7 +5,6 @@ import java.net.URI;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -29,6 +28,14 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @RequestMapping("/packs")
 @Controller
 public class PackController {
+	
+	@GetMapping("/basic")
+	public String basic(Model model) {
+		model.addAttribute("name", "World");
+		model.addAttribute("hello", true);
+		
+		return "basic";
+	}
 	
 	@Autowired
 	private PackRepository packs;
@@ -171,5 +178,17 @@ public class PackController {
 
 		return comentario;
 	}
+	
+
+	
+	
+	@GetMapping("/greeting")
+	public String greeting(Model model) {
+		model.addAttribute("name", "World");
+		model.addAttribute("hello", true);
+		
+		return "greeting_template";
+	}
+
 		
 }

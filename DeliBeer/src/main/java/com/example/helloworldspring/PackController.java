@@ -71,6 +71,7 @@ public class PackController {
 	
 	@GetMapping("/{id}")
 	public PackCerveza getPack(@PathVariable long id){
+		
 		return packs.findById(id).orElseThrow();	
 	}
 	
@@ -135,6 +136,7 @@ public class PackController {
 		Comentario comentario = comentarios.findById(idComentario).orElseThrow();
 
 		updatedComentario.setId(idComentario);
+		
 		updatedComentario.setPack(comentario.getPack());
 		
 		comentarios.save(updatedComentario);

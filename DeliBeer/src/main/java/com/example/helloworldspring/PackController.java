@@ -109,11 +109,7 @@ public class PackController {
 		return ResponseEntity.created(location).body(pack);
 	}
 	
-	@PostMapping("/pareja")
-	public String pareja(Model model) {
-		
-		return "pareja";
-	}
+	
 	
 	@PutMapping("/{id}")
 	public PackCerveza replacePack(@PathVariable long id,

@@ -84,8 +84,6 @@ public class PackController {
 		
 		packs.save(p3);
 		
-		
-		
 	}
 	
 	@GetMapping("/")
@@ -111,6 +109,12 @@ public class PackController {
 		return ResponseEntity.created(location).body(pack);
 	}
 	
+	@PostMapping("/pareja")
+	public String pareja(Model model) {
+		
+		return "pareja";
+	}
+	
 	@PutMapping("/{id}")
 	public PackCerveza replacePack(@PathVariable long id,
 			@RequestBody PackCerveza newPackCerveza) {
@@ -125,6 +129,8 @@ public class PackController {
 		
 		return newPackCerveza;
 	}
+	
+	
 	
 	@DeleteMapping("/{id}")
 	public PackCerveza deletePack(@PathVariable long id){

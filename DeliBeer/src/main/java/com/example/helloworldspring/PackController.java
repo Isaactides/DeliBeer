@@ -29,13 +29,6 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 @Controller
 public class PackController {
 	
-	@GetMapping("/basic")
-	public String basic(Model model) {
-		model.addAttribute("name", "World");
-		model.addAttribute("hello", true);
-		
-		return "basic";
-	}
 	
 	@Autowired
 	private PackRepository packs;
@@ -45,13 +38,11 @@ public class PackController {
 	
 	@PostConstruct
 	public void init() {
-		//packs.save(new PackCerveza("Pareja", 2, 10));
-		//packs.save(new PackCerveza("Inicial", 5, 22));
 		PackCerveza p = new PackCerveza();
 		p.setNombre("Pareja");
 		p.setNumCervezas(2);
 		p.setPrecio(10.0);
-		p.addComentario(new Comentario("Maravillosa", 7));
+		p.addComentario(new Comentario("Vaya mierda de vino nos han puesto para comer", 7));
 		p.addComentario(new Comentario("nota mal", 5));
 		
 		packs.save(p);
@@ -67,20 +58,20 @@ public class PackController {
 		packs.save(p1);
 		
 		PackCerveza p2 = new PackCerveza();
-		p1.setNombre("Profesional");
-		p1.setNumCervezas(8);
-		p1.setPrecio(31.5);
-		p1.addComentario(new Comentario("meh", 3));
-		p1.addComentario(new Comentario("me agrada", 5));
+		p2.setNombre("Profesional");
+		p2.setNumCervezas(8);
+		p2.setPrecio(31.5);
+		p2.addComentario(new Comentario("meh", 3));
+		p2.addComentario(new Comentario("me agrada", 5));
 		
 		packs.save(p2);
 		
 		PackCerveza p3 = new PackCerveza();
-		p1.setNombre("Fiesta");
-		p1.setNumCervezas(10);
-		p1.setPrecio(22.0);
-		p1.addComentario(new Comentario("Tremendo fieston", 9));
-		p1.addComentario(new Comentario("perfecto para un Project X, con pibitas", 10));
+		p3.setNombre("Fiesta");
+		p3.setNumCervezas(10);
+		p3.setPrecio(22.0);
+		p3.addComentario(new Comentario("Tremendo fieston", 9));
+		p3.addComentario(new Comentario("perfecto para un Project X, con pibitas", 10));
 		
 		packs.save(p3);
 		

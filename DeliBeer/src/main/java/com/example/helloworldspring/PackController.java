@@ -1,5 +1,6 @@
 package com.example.helloworldspring;
 
+import java.io.IOException;
 import java.net.URI;
 
 
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -181,6 +185,16 @@ public class PackController {
 		model.addAttribute("hello", true);
 		
 		return "greeting_template";
+	}
+	
+	@PostMapping("/{id}/image")
+	public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException{
+		PackCerveza pack = packs.findById(id).orElseThrow();
+		URI location = fromCurrentRequest().build().toUri();
+		pack.setImage(location.toString());
+		pack.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
+		
+		return ResponseEntity.created(location).build();
 	}
 
 		

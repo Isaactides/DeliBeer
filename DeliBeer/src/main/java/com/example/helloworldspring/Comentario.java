@@ -23,6 +23,7 @@ public class Comentario {
 	
 	public Comentario() {
 		
+		
 	}
 
 	public Comentario(String texto, int valoracion) {

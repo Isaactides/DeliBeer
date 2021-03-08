@@ -32,4 +32,7 @@ Los pack de cervezas serán los siguientes:
 - Se generará un PDF con el resumen del pedido y se enviará al correo de los usuarios.
 - Se notificará mediante un correo electrónico a los usuarios cada vez que se actualice el catálogo mensual de los packs.
 
+### Diagrama de clases UML
+<img width="996" alt="Screen Shot 2021-03-08 at 13 52 57" src="https://user-images.githubusercontent.com/78824934/110324135-de77e500-8015-11eb-9530-cf7d71823cd1.png">
+
 Integrantes del equipo de desarrollo: (Isaac Timón de Santos - i.timon.2017@alumnos.urjc.es) ( Angel Colliga Garcia - aj.colliga.2017@alumnos.urjc.es) (Iván López Vázquez - i.lopezv.2017@alumnos.urjc.es) https://github.com/Isaactides/DeliBeer.git

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compra</title>
+</head>
+<body>
+<h1>Esta comprando:{{tipo}}</h1>
+<form action="/pedido/new" method="post" enctype="multipart/form-data">
+  <p>Nombre: <input type="text" name='Nombre' size="40"></p>
+  <p>Apellidos: <input type="text" name='Apellidos' size="40"></p>
+  <p>Direccion de Entrega: <input type="text" name='Direccion' size="40"></p>
+  <p>Telefono de contacto: <input type="text" name='Telefono' size="40"></p>
+  <p>Año de nacimiento: <input type="number" name='AñoNacimiento' min="1900"></p>
+  <p>
+    <input type="submit" value="Enviar">
+    <input type="reset" value="Borrar">
+  </p>
+</form>
+</body>
+</html>

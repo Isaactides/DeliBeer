@@ -41,7 +41,6 @@ Los pack de cervezas serán los siguientes:
 ---------------------------------------------------------------------------------------
 -**Pack pareja**: En esta página podrán adquirir el pack de 2 cervezas los mas tímidos. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Screen Shot 2021-03-09 at 13 01 14" src="https://user-images.githubusercontent.com/78824934/110467731-a638db00-80d7-11eb-89b0-9d8bf5d12064.png">
-
 ---------------------------------------------------------------------------------------
 -**Pack inicial**:En esta página podrán adquirir el pack de 5 cervezas los que ya están metidos en el mundillo de la cerveza. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Inicial" src="https://user-images.githubusercontent.com/78824934/110464208-2a3c9400-80d3-11eb-96af-0cab3ce8f2aa.png">
@@ -51,7 +50,6 @@ Los pack de cervezas serán los siguientes:
 ---------------------------------------------------------------------------------------
 -**Pack fiesta**:En esta página podrán adquirir el pack de 10 cervezas los que están dispuestos a tener la mejor fiesta de la historia. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Screen Shot 2021-03-09 at 13 01 26" src="https://user-images.githubusercontent.com/78824934/110467760-adf87f80-80d7-11eb-8aa5-62f1cb85122a.png">
-
 ---------------------------------------------------------------------------------------
 -**Pagina compra**
 <img width="1440" alt="CompraPareja" src="https://user-images.githubusercontent.com/78824934/110464374-59530580-80d3-11eb-9248-dda1116b9342.png">

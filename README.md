@@ -36,27 +36,28 @@ Los pack de cervezas serán los siguientes:
 <img width="996" alt="Screen Shot 2021-03-08 at 13 52 57" src="https://user-images.githubusercontent.com/78824934/110324135-de77e500-8015-11eb-9530-cf7d71823cd1.png">
 
 ### Capturas de las principales paginas 
--**Pagina principal**:Aquí podremos encontrar los diferentes packs de cerveza que se pueden comprar, y haciendo click en cada imagen nos redireccionará a la pagina de cada pack en concreto. 
+
+- **Pagina principal**:Aquí podremos encontrar los diferentes packs de cerveza que se pueden comprar, y haciendo click en cada imagen nos redireccionará a la pagina de cada pack en concreto. 
 <img width="1437" alt="Portada" src="https://user-images.githubusercontent.com/78824934/110464023-eba6d980-80d2-11eb-86ce-1c19dac6237a.png">
----------------------------------------------------------------------------------------
--**Pack pareja**: En esta página podrán adquirir el pack de 2 cervezas los mas tímidos. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
+
+
+- **Pack pareja**: En esta página podrán adquirir el pack de 2 cervezas los mas tímidos. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Screen Shot 2021-03-09 at 13 01 14" src="https://user-images.githubusercontent.com/78824934/110467731-a638db00-80d7-11eb-89b0-9d8bf5d12064.png">
----------------------------------------------------------------------------------------
--**Pack inicial**:En esta página podrán adquirir el pack de 5 cervezas los que ya están metidos en el mundillo de la cerveza. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
+
+- **Pack inicial**:En esta página podrán adquirir el pack de 5 cervezas los que ya están metidos en el mundillo de la cerveza. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Inicial" src="https://user-images.githubusercontent.com/78824934/110464208-2a3c9400-80d3-11eb-96af-0cab3ce8f2aa.png">
----------------------------------------------------------------------------------------
--**Pack profesional**:En esta página podrán adquirir el pack de 8 cervezas los que se aventuran a tener un día movidito. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
+
+- **Pack profesional**:En esta página podrán adquirir el pack de 8 cervezas los que se aventuran a tener un día movidito. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Profesional" src="https://user-images.githubusercontent.com/78824934/110464288-404a5480-80d3-11eb-98e8-3043baf4b6cc.png">
----------------------------------------------------------------------------------------
--**Pack fiesta**:En esta página podrán adquirir el pack de 10 cervezas los que están dispuestos a tener la mejor fiesta de la historia. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
+
+- **Pack fiesta**:En esta página podrán adquirir el pack de 10 cervezas los que están dispuestos a tener la mejor fiesta de la historia. Tiene asignada una seccion de comentarios y valoración para que los clientes pueden basarse en la opinión de anteriores compradores del pack. Además existen 2 botones, uno para volver hacia atrás en la navegación y otro para comprar el producto.
 <img width="1440" alt="Screen Shot 2021-03-09 at 13 01 26" src="https://user-images.githubusercontent.com/78824934/110467760-adf87f80-80d7-11eb-8aa5-62f1cb85122a.png">
----------------------------------------------------------------------------------------
--**Pagina compra**
+
+- **Pagina compra**: A esta página podremos acceder desde las pestañas de cada uno de los packs para realizar el pedido de ese pack. El usuario debera rellenar un formulario con sus datos que se añadiran al pedido.
 <img width="1440" alt="CompraPareja" src="https://user-images.githubusercontent.com/78824934/110464374-59530580-80d3-11eb-9248-dda1116b9342.png">
----------------------------------------------------------------------------------------
--**Pagina resumen pedido**
+
+- **Pagina resumen pedido**: En esta página se mostraran los datos ue ha introducido el usuario en el formulario de la compra, además del tipo de pack que ha seleccionado.
 <img width="1440" alt="ResumenPedido" src="https://user-images.githubusercontent.com/78824934/110464543-899aa400-80d3-11eb-9871-46d9d7476c19.png">
----------------------------------------------------------------------------------------
 
 ### Diagrama de Navegacion
 

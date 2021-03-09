@@ -10,60 +10,65 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	String Nombre;
-	String Apellidos;
-	String Direccion;
-	int Telefono;
-	int AñoNacimiento;
+	String nombre;
+	String apellidos;
+	String direccion;
+	String tipo_pedido;
+	int telefono;
+	int anio;
 
+	public Pedido() {
+		
+	}
 	
-	public Pedido(String nombre, String apellidos, String direccion, int telefono, int año) {
+	public Pedido(String nombre, String apellidos, String direccion, String tipo_pedido, int telefono, int anio) {
 		super();
-		this.Nombre=nombre;
-		this.Apellidos=apellidos;
-		this.Direccion=direccion;
-		this.Telefono=telefono;
-		this.AñoNacimiento=año;
+		this.nombre=nombre;
+		this.apellidos=apellidos;
+		this.direccion=direccion;
+		this.tipo_pedido=tipo_pedido;
+		this.telefono=telefono;
+		this.anio=anio;
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getApellidos() {
-		return Apellidos;
+		return apellidos;
 	}
 
 	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+		this.apellidos = apellidos;
 	}
 
 	public String getDireccion() {
-		return Direccion;
+		return direccion;
 	}
 
 	public void setDireccion(String direccion) {
-		Direccion = direccion;
+		this.direccion = direccion;
 	}
 
 	public int getTelefono() {
-		return Telefono;
+		return telefono;
 	}
 
 	public void setTelefono(int telefono) {
-		Telefono = telefono;
+		this.telefono = telefono;
 	}
 
-	public int getAñoNacimiento() {
-		return AñoNacimiento;
+	public int getAnio() {
+		return anio;
 	}
 
-	public void setAñoNacimiento(int añoNacimiento) {
-		AñoNacimiento = añoNacimiento;
+	public void setAnio(int anio) {
+		this.anio = anio;
 	}
 
 	
@@ -75,11 +80,21 @@ public class Pedido {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+
+	public String getTipo_pedido() {
+		return tipo_pedido;
+	}
+
+	public void setTipo_pedido(String tipo_pedido) {
+		this.tipo_pedido = tipo_pedido;
+	}
 
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", Nombre=" + Nombre + ", Apellidos=" + Apellidos + ", Direccion=" + Direccion
-				+ ", Telefono=" + Telefono + ", AñoNacimiento=" + AñoNacimiento + "]";
+		return "Pedido [id=" + id + ", Nombre=" + nombre + ", Apellidos=" + apellidos + ", Direccion=" + direccion
+				+ ", Telefono=" + telefono + ", AñoNacimiento=" + anio + "]";
 	}
 	
 	

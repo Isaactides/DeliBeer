@@ -58,4 +58,9 @@ Los pack de cervezas serán los siguientes:
 <img width="1440" alt="ResumenPedido" src="https://user-images.githubusercontent.com/78824934/110464543-899aa400-80d3-11eb-9871-46d9d7476c19.png">
 ---------------------------------------------------------------------------------------
 
+### Diagrama de Navegacion
+
+![image](https://user-images.githubusercontent.com/60182691/110465082-44c33d00-80d4-11eb-9bcd-49c775e96591.png)
+
+
 Integrantes del equipo de desarrollo: (Isaac Timón de Santos - i.timon.2017@alumnos.urjc.es) ( Angel Colliga Garcia - aj.colliga.2017@alumnos.urjc.es) (Iván López Vázquez - i.lopezv.2017@alumnos.urjc.es) https://github.com/Isaactides/DeliBeer.git

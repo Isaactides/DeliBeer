@@ -46,8 +46,8 @@ public class PackController {
 		p.setNombre("Pareja");
 		p.setNumCervezas(2);
 		p.setPrecio(10.0);
-		p.addComentario(new Comentario("Vaya mierda de vino nos han puesto para comer", 7));
-		p.addComentario(new Comentario("nota mal", 5));
+		p.addComentario(new Comentario("No me gusta esta cerveza", 3));
+		p.addComentario(new Comentario("No esta mal", 5));
 		
 		packs.save(p);
 		
@@ -57,7 +57,7 @@ public class PackController {
 		p1.setNumCervezas(5);
 		p1.setPrecio(22.0);
 		p1.addComentario(new Comentario("Carisima", 3));
-		p1.addComentario(new Comentario("me giusta", 6));
+		p1.addComentario(new Comentario("Me gusta", 6));
 		
 		packs.save(p1);
 		
@@ -65,8 +65,8 @@ public class PackController {
 		p2.setNombre("Profesional");
 		p2.setNumCervezas(8);
 		p2.setPrecio(31.5);
-		p2.addComentario(new Comentario("meh", 3));
-		p2.addComentario(new Comentario("me agrada", 5));
+		p2.addComentario(new Comentario("Un poco mala", 3));
+		p2.addComentario(new Comentario("Me agrada", 5));
 		
 		packs.save(p2);
 		
@@ -74,8 +74,8 @@ public class PackController {
 		p3.setNombre("Fiesta");
 		p3.setNumCervezas(10);
 		p3.setPrecio(22.0);
-		p3.addComentario(new Comentario("Tremendo fieston", 9));
-		p3.addComentario(new Comentario("perfecto para un Project X, con pibitas", 10));
+		p3.addComentario(new Comentario("Que buena fiesta con estas cervezas", 9));
+		p3.addComentario(new Comentario("Perfecto para pasarlo bien con los amigos", 10));
 		
 		packs.save(p3);
 		

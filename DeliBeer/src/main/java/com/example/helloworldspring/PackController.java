@@ -175,27 +175,5 @@ public class PackController {
 
 		return comentario;
 	}
-	
-
-	
-	
-	@GetMapping("/greeting")
-	public String greeting(Model model) {
-		model.addAttribute("name", "World");
-		model.addAttribute("hello", true);
-		
-		return "greeting_template";
-	}
-	
-	@PostMapping("/{id}/image")
-	public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException{
-		PackCerveza pack = packs.findById(id).orElseThrow();
-		URI location = fromCurrentRequest().build().toUri();
-		pack.setImage(location.toString());
-		pack.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
-		
-		return ResponseEntity.created(location).build();
-	}
-
-		
+			
 }

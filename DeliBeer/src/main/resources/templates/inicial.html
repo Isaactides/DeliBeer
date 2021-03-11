@@ -1,29 +1,23 @@
 <html>
 <body>
-	<h1 style="text-align: center; color: #3f7320;">PACK INICIAL</h1>
+	<h1 style="text-align: center; color: #3f7320;">Pack {{cerve.nombre}}</h1>
 	<p>
-		<strong>Pack ideal para iniciarte en el mundo de las
-						cervezas e ir enamorandote de &eacute;l </strong>
+		<strong>Usted esta realizando la compra del Pack {{cerve.nombre}} </strong>
 	</p>
 	<p>
-		<strong></strong>
+		Este Pack contiene {{cerve.numCervezas}} cervezas a un precio de {{cerve.precio}}
 	</p>
 	<p>
-		<img src="PackInicial.jpg" width="286" height="250">
-	</p>
-	<p>
-		<strong></strong>
-	</p>
-	<p>
-		<strong>COMENTARIOS&nbsp;</strong>
+		<strong>TABLON DE COMENTARIOS&nbsp;</strong>
 		<ul>
-		{{#comentarios}}
+		{{#comentario}}
 			<li> {{texto}} Nota: {{valoracion}} </li>
-		{{/comentarios}}
+		{{/comentario}}
 		</ul>
 	</p>
-	<button > <a href="/"> Volver atras </a> </button>
-	<button > <a href="/compra?tipo=inicial"> Comprar </a> </button>
+	<button > <a href="/paginainicio"> Volver atras </a> </button>
+	<button > <a href="/compra?tipo={{cerve.nombre}}"> Comprar </a> </button>
+	<button > <a href="/agregarcomentario?tipo={{cerve.nombre}}"> Agregar Comentario </a> </button>
 	<p></p>
 </body>
 </html>

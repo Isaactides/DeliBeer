@@ -7,54 +7,40 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class parejaController {
 	
 	@Autowired
 	private ParejaRepository packs;
+	private ComentarioRepository coment;
 	
-	@GetMapping("/pareja")
-	public String pareja(Model model) {
-		
-		List<PackCerveza> pack = packs.findByNombre("pareja");
-		PackCerveza cerve = pack.get(0);
-		List<Comentario> comentarios = cerve.getComentarios();
-		model.addAttribute("comentarios", comentarios);
-		return "pareja";
+	@GetMapping("/paginainicio")
+	public String mostrarPacks(Model model) {
+		List<PackCerveza> pack = packs.findAll();
+		model.addAttribute("pack", pack);
+		return "paginainicio";
 	}
 	
-	@GetMapping("/inicial")
-	public String inicial(Model model) {
-		
-		List<PackCerveza> pack = packs.findByNombre("inicial");
+	@GetMapping("/administrador")
+	public String mostrarPacksAdmin(Model model) {
+		List<PackCerveza> pack = packs.findAll();
+		model.addAttribute("pack", pack);
+		return "administrador";
+	}
+	
+	@PostMapping("/ini")
+	public String agregarComentario(Model model, Comentario coment, @RequestParam String tipo) {
+		List<PackCerveza> pack = packs.findByNombre(tipo);
 		PackCerveza cerve = pack.get(0);
-		List<Comentario> comentarios = cerve.getComentarios();
-		model.addAttribute("comentarios", comentarios);
-		
+		cerve.addComentario(coment);
+		packs.save(cerve);
+		List<Comentario> comentario = cerve.getComentarios();
+		model.addAttribute("comentario", comentario);
+		model.addAttribute("cerve", cerve);
 		return "inicial";
 	}
 	
-	@GetMapping("/profesional")
-	public String profesional(Model model) {
-		
-		List<PackCerveza> pack = packs.findByNombre("profesional");
-		PackCerveza cerve = pack.get(0);
-		List<Comentario> comentarios = cerve.getComentarios();
-		model.addAttribute("comentarios", comentarios);
-		
-		return "profesional";
-	}
 	
-	@GetMapping("/fiesta")
-	public String fiesta(Model model) {
-		
-		List<PackCerveza> pack = packs.findByNombre("fiesta");
-		PackCerveza cerve = pack.get(0);
-		List<Comentario> comentarios = cerve.getComentarios();
-		model.addAttribute("comentarios", comentarios);
-		
-		return "fiesta";
-	}
-
 }

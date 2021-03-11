@@ -7,6 +7,7 @@ import java.net.URI;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -81,6 +82,8 @@ public class PackController {
 		
 	}
 	
+	
+	
 	@GetMapping("/")
 	public Collection<PackCerveza> getPacks() {
 		return packs.findAll();
@@ -92,6 +95,7 @@ public class PackController {
 		
 		return packs.findById(id).orElseThrow();	
 	}
+	
 	
 	
 	@PostMapping("/")

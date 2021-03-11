@@ -1,0 +1,21 @@
+<html>
+<body>
+	<h1 style="text-align: center; color: #3f7320;">Pack {{cerve.nombre}}</h1>
+	<p>
+		<strong>Usted esta realizando la compra del Pack {{cerve.nombre}} </strong>
+	</p>
+	<p>
+		Este Pack contiene {{cerve.numCervezas}} cervezas a un precio de {{cerve.precio}}
+	</p>
+	<p>
+		<strong>TABLON DE COMENTARIOS&nbsp;</strong>
+		<ul>
+		{{#comentario}}
+			<li> {{texto}} Nota: {{valoracion}} </li>
+		{{/comentario}}
+		</ul>
+	</p>
+	<button > <a href="/administrador"> Volver atras </a> </button>
+	<p></p>
+</body>
+</html>

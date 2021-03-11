@@ -1,0 +1,15 @@
+<head>
+<title>Agregar Comentario al Pack {{tipo}}</title>
+</head>
+<body>
+<h1>Agregar Comentario al Pack {{tipo}}</h1>
+<form action="/ini?tipo={{tipo}}" method="post">
+  <p>Comentario: <input type="text" name='texto' size="40"></p>
+  <p>Valoracion: <input type="text" name='valoracion' size="40" ></p>
+  <p>
+    <input type="submit" value="Agregar">
+    <input type="reset" value="Borrar">
+  </p>
+</form>
+</body>
+</html>

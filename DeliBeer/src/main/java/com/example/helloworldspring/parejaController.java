@@ -23,6 +23,7 @@ public class parejaController {
 		return "paginainicio";
 	}
 	
+	
 	@GetMapping("/administrador")
 	public String mostrarPacksAdmin(Model model) {
 		List<PackCerveza> pack = packs.findAll();

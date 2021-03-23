@@ -18,6 +18,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/login").permitAll();
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/paginainicio").permitAll();
+        http.authorizeRequests().antMatchers("/inicial").permitAll();
+        http.authorizeRequests().antMatchers("/compra").permitAll();
+        http.authorizeRequests().antMatchers("/comprado").permitAll();
+        http.authorizeRequests().antMatchers("/agregarcomentario").permitAll();
+        http.authorizeRequests().antMatchers("/ini").permitAll();
+        http.authorizeRequests().antMatchers("/pedidos/pedidoaux").permitAll();
 
         // Private pages (all other pages)
         http.authorizeRequests().anyRequest().authenticated();

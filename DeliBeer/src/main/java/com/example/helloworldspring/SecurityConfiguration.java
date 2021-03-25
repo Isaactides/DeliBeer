@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/paginainicio").permitAll();
-        http.authorizeRequests().antMatchers("/inicial").permitAll();
+        //http.authorizeRequests().antMatchers("/inicial").permitAll();
         http.authorizeRequests().antMatchers("/compra").permitAll();
         http.authorizeRequests().antMatchers("/comprado").permitAll();
         http.authorizeRequests().antMatchers("/agregarcomentario").permitAll();
@@ -27,6 +27,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/pedidos/pedidoaux").permitAll();
 
         // Private pages (all other pages)
+        http.authorizeRequests().antMatchers("/inicial").hasAnyRole("USER");
+        http.authorizeRequests().antMatchers("/inicialadmin").hasAnyRole("ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
 
         // Login form
@@ -52,6 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
     	// User
         auth.inMemoryAuthentication().withUser("user").password(encoder.encode("pass")).roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("adminpass")).roles("ADMIN");
     	
     	
     }

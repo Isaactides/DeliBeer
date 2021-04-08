@@ -1,15 +1,43 @@
 package com.example.helloworldspring;
 
+import java.security.SecureRandom;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	RepositoryUserDetailsService userDetailsService;
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder(10, new SecureRandom());
+	}
+	
+	@Override
+	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	    	
+			auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+			
+		
+	    	/*// Enable default password encoder (mandatory since Spring Security 5 to avoid storing passwords in plain text)
+	    	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+	        
+	    	// User
+	        auth.inMemoryAuthentication().withUser("user").password(encoder.encode("pass")).roles("USER");
+	        auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("adminpass")).roles("ADMIN");
+	    	*/	    	
+	    }
+	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         
@@ -44,19 +72,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         // Disable CSRF at the moment
         http.csrf().disable();
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	
-    	// Enable default password encoder (mandatory since Spring Security 5 to avoid storing passwords in plain text)
-    	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        
-    	// User
-        auth.inMemoryAuthentication().withUser("user").password(encoder.encode("pass")).roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("adminpass")).roles("ADMIN");
-    	
-    	
     }
 
 }

@@ -2,6 +2,8 @@ package com.example.helloworldspring;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +27,11 @@ public class parejaController {
 	
 	
 	@GetMapping("/administrador")
-	public String mostrarPacksAdmin(Model model) {
+	public String mostrarPacksAdmin(Model model, HttpServletRequest request) {
 		List<PackCerveza> pack = packs.findAll();
 		model.addAttribute("pack", pack);
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		model.addAttribute("user", request.isUserInRole("USER"));
 		return "administrador";
 	}
 	

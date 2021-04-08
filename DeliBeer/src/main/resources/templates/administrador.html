@@ -3,6 +3,8 @@
 		seleccionar el pack de cerveza que quiera</strong>
 </p>
 <h4>Packs disponibles durante este mes</h4>
+
+{{#admin}}
 <table class="editorDemoTable"
 	style="height: 213px; vertical-align: top; border-style: solid; background-color: #7fffd4;">
 	<thead>
@@ -38,8 +40,54 @@
 			</ul>
 	</tbody>
 </table>
+{{/admin}}
+
+
+{{#user}}
+<table class="editorDemoTable"
+	style="height: 213px; vertical-align: top; border-style: solid; background-color: #7fffd4;">
+	<thead>
+		<tr style="height: 23px;">
+			<td style="width: 186px; height: 10px;">Packs</td>
+			<td style="width: 242px; height: 10px;">Numero de Cervezas</td>
+			<td style="width: 182px; height: 10px;">Precio</td>
+		</tr>
+	</thead>
+	<tbody>
+		
+		
+			<ul>
+				{{#pack}}
+				<tr style="height: 46px;">
+					<td> <li>
+							<a href="/inicial?tipo={{nombre}}">{{nombre}}</a>
+						</li>
+					</td>
+					
+					<td> <li>
+							{{numCervezas}}
+						</li>
+					</td>
+					
+					<td> <li>
+							{{precio}}
+						</li>
+					</td>
+				</tr>
+				{{/pack}}
+		
+			</ul>
+	</tbody>
+</table>
+{{/user}}
+
+
+
+
 
 <button > <a href="/"> Volver atras </a> </button>
 
+{{#admin}}
 <button > <a href="/anadirpack"> Agregar Pack</a> </button>
+{{/admin}}
 

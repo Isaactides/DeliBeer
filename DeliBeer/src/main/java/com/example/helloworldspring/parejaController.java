@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ public class parejaController {
 	@Autowired
 	private ParejaRepository packs;
 	private ComentarioRepository coment;
+	private UserRepository users;
+	private PasswordEncoder encoder;
 	
 	@GetMapping("/paginainicio")
 	public String mostrarPacks(Model model) {
@@ -47,5 +50,19 @@ public class parejaController {
 		return "inicial";
 	}
 	
-	
+	@PostMapping("/nuevousuario")
+	public String agregarUsuario(Model model, User usuario) {
+		users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
+		model.addAttribute("usuario", usuario);
+		return "comprobacion";	
+	}
+	/*
+	@GetMapping("/agregarusu")
+	public String agregarUsu(Model model, @RequestParam )
+*/	
 }
+
+
+
+
+

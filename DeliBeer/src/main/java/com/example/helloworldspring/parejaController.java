@@ -53,13 +53,17 @@ public class parejaController {
 	@PostMapping("/nuevousuario")
 	public String agregarUsuario(Model model, User usuario) {
 		users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
+		//users.save(new User (usuario.getName(), usuario.getEncodedPassword(), "USER"));
+		//users.save(new User (usuario);
 		model.addAttribute("usuario", usuario);
 		return "comprobacion";	
 	}
-	/*
+	
 	@GetMapping("/agregarusu")
-	public String agregarUsu(Model model, @RequestParam )
-*/	
+	public String agregarUsu(Model model) {
+		return "agregarusu";
+	}
+
 }
 
 

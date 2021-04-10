@@ -53,6 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/agregarcomentario").permitAll();
         http.authorizeRequests().antMatchers("/ini").permitAll();
         http.authorizeRequests().antMatchers("/pedidos/pedidoaux").permitAll();
+        http.authorizeRequests().antMatchers("/agregarusu").permitAll();
 
         // Private pages (all other pages)
         http.authorizeRequests().antMatchers("/inicial").hasAnyRole("USER");

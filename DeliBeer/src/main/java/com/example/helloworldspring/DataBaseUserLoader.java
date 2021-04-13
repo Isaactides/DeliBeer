@@ -11,13 +11,16 @@ public class DataBaseUserLoader {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	/*@Autowired
+	private PasswordEncoder passwordEncoder;*/
 	
 	@PostConstruct
 	private void initDataBase() {
-		userRepository.save(new User("user", passwordEncoder.encode("pass"), "USER"));
-		userRepository.save(new User("admin", passwordEncoder.encode("adminpass"), "ADMIN"));
+		/*userRepository.save(new User("user", passwordEncoder.encode("pass"), "USER"));
+		userRepository.save(new User("admin", passwordEncoder.encode("adminpass"), "ADMIN"));*/
+		
+		userRepository.save(new User("user", "pass", "ROLE_USER"));
+		userRepository.save(new User("admin", "adminpass", "ROLE_ADMIN"));
 	}
 	
 }

@@ -57,7 +57,7 @@ public class parejaController {
 	public String agregarUsuario(Model model, User usuario) {
 		System.out.println(usuario.getName());
 		System.out.println(usuario.getEncodedPassword());
-		users.save(new User(usuario.getName(), usuario.getEncodedPassword(), "ROLE_USER"));
+		users.save(new User(usuario.getName(), usuario.getEncodedPassword(), usuario.getMail(),  "ROLE_USER"));
 		model.addAttribute("usuario", usuario);
 		return "comprobacion";	
 	}

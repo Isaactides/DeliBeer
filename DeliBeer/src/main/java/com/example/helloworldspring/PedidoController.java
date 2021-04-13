@@ -5,6 +5,8 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 import java.net.URI;
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -26,10 +28,14 @@ public class PedidoController {
 	@Autowired
 	private PedidoRepository pedidos;
 	
-	
+	@Autowired
+	private UserRepository userRepository;
+		
 	@PostMapping("/pedidoaux")
-	public String nuevoPedido(Model model, Pedido pedido) {
+	public String nuevoPedido(Model model, Pedido pedido, HttpServletRequest request) {
+		User user=userRepository.findByName(request.getUserPrincipal().getName());
 		pedidos.save(pedido);
+		model.addAttribute("mail", user.getMail());
 		model.addAttribute("pedido", pedido);
 		return "comprado";
 	}

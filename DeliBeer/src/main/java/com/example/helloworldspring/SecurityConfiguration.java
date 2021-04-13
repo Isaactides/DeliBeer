@@ -3,9 +3,11 @@ package com.example.helloworldspring;
 import java.security.SecureRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,20 +15,24 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	RepositoryUserDetailsService userDetailsService;
+	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
-	@Bean
+	/*@Autowired
+	RepositoryUserDetailsService userDetailsService;*/
+	
+	/*@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder(10, new SecureRandom());
-	}
+	}*/
 	
 	@Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	    	
-			auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+			auth.authenticationProvider(authenticationProvider);
 			
 		
 	    	/*// Enable default password encoder (mandatory since Spring Security 5 to avoid storing passwords in plain text)
@@ -47,13 +53,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/logout").permitAll();
         http.authorizeRequests().antMatchers("/paginainicio").permitAll();
-        //http.authorizeRequests().antMatchers("/inicial").permitAll();
         http.authorizeRequests().antMatchers("/compra").permitAll();
         http.authorizeRequests().antMatchers("/comprado").permitAll();
         http.authorizeRequests().antMatchers("/agregarcomentario").permitAll();
         http.authorizeRequests().antMatchers("/ini").permitAll();
         http.authorizeRequests().antMatchers("/pedidos/pedidoaux").permitAll();
         http.authorizeRequests().antMatchers("/agregarusu").permitAll();
+        http.authorizeRequests().antMatchers("/comprobacion").permitAll();
+        http.authorizeRequests().antMatchers("/nuevousuario").permitAll();
 
         // Private pages (all other pages)
         http.authorizeRequests().antMatchers("/inicial").hasAnyRole("USER");

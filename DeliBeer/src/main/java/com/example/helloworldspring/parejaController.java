@@ -17,8 +17,11 @@ public class parejaController {
 	
 	@Autowired
 	private ParejaRepository packs;
+	
 	private ComentarioRepository coment;
+	@Autowired
 	private UserRepository users;
+	
 	private PasswordEncoder encoder;
 	
 	@GetMapping("/paginainicio")
@@ -52,14 +55,19 @@ public class parejaController {
 	
 	@PostMapping("/nuevousuario")
 	public String agregarUsuario(Model model, User usuario) {
-		users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
+		//users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
+		System.out.println(usuario.getName());
+		System.out.println(usuario.getEncodedPassword());
+		users.save(new User(usuario.getName(), usuario.getEncodedPassword(), "ROLE_USER"));
 		model.addAttribute("usuario", usuario);
 		return "comprobacion";	
 	}
-	/*
+	
 	@GetMapping("/agregarusu")
-	public String agregarUsu(Model model, @RequestParam )
-*/	
+	public String agregarUsu(Model model) {
+		return "agregarusu";
+	}
+	
 }
 
 

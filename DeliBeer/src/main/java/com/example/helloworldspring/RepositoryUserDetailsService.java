@@ -11,9 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
-public class RepositoryUserDetailsService implements UserDetailsService {
-	@Autowired
+//@Service
+//public class RepositoryUserDetailsService implements UserDetailsService {
+	/*@Autowired
 	private UserRepository userRepository;
 
 	@Override
@@ -31,4 +31,4 @@ public class RepositoryUserDetailsService implements UserDetailsService {
 				user.getEncodedPassword(), roles);
 
 	}
-}
+}*/

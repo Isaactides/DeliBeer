@@ -55,10 +55,16 @@ public class parejaController {
 	
 	@PostMapping("/nuevousuario")
 	public String agregarUsuario(Model model, User usuario) {
+<<<<<<< HEAD
 		//users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
 		System.out.println(usuario.getName());
 		System.out.println(usuario.getEncodedPassword());
 		users.save(new User(usuario.getName(), usuario.getEncodedPassword(), "ROLE_USER"));
+=======
+		users.save(new User (usuario.getName(), encoder.encode(usuario.getEncodedPassword()), "USER"));
+		//users.save(new User (usuario.getName(), usuario.getEncodedPassword(), "USER"));
+		//users.save(new User (usuario);
+>>>>>>> 3684090c1110e38854b1888116fb5f926e641f81
 		model.addAttribute("usuario", usuario);
 		return "comprobacion";	
 	}
@@ -67,7 +73,11 @@ public class parejaController {
 	public String agregarUsu(Model model) {
 		return "agregarusu";
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 3684090c1110e38854b1888116fb5f926e641f81
 }
 
 

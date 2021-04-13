@@ -17,6 +17,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private String mail;
 	private String encodedPassword;
 	
 	@ElementCollection(fetch=FetchType.EAGER)
@@ -25,8 +26,9 @@ public class User {
 	public User() {
 	}
 
-	public User(String name, String password, String... roles) {
+	public User(String name, String password, String mail, String... roles) {
 		this.name = name;
+		this.mail=mail;
 		this.encodedPassword = new BCryptPasswordEncoder().encode(password);
 		this.roles = List.of(roles);
 	}
@@ -37,6 +39,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public String getEncodedPassword() {

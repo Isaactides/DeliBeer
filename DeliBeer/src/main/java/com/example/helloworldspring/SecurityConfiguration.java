@@ -21,13 +21,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public UserRepositoryAuthenticationProvider authenticationProvider;
 	
-	/*@Autowired
-	RepositoryUserDetailsService userDetailsService;*/
-	
-	/*@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(10, new SecureRandom());
-	}*/
 	
 	@Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {

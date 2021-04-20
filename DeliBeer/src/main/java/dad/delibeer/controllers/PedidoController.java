@@ -1,4 +1,5 @@
 package dad.delibeer.controllers;
+import dad.delibeer.*;
 
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -43,7 +44,11 @@ public class PedidoController {
 		pedidos.save(pedido);
 		model.addAttribute("mail", user.getMail());
 		model.addAttribute("pedido", pedido);
-		return "comprado";
+		ServicioInterno si = new ServicioInterno();
+		
+		si.enviar(pedido, user.getMail());
+		si.recibir();
+		return "comprado";	
 	}
 	
 }

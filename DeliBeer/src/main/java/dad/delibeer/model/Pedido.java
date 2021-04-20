@@ -1,12 +1,14 @@
 package dad.delibeer.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Pedido {
+public class Pedido implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -16,12 +18,13 @@ public class Pedido {
 	String tipo_pedido;
 	int telefono;
 	int anio;
+	double precio_pedido;
 
 	public Pedido() {
 		
 	}
 	
-	public Pedido(String nombre, String apellidos, String direccion, String tipo_pedido, int telefono, int anio) {
+	public Pedido(String nombre, String apellidos, String direccion, String tipo_pedido, int telefono, int anio, double precio_pedido) {
 		super();
 		this.nombre=nombre;
 		this.apellidos=apellidos;
@@ -29,6 +32,15 @@ public class Pedido {
 		this.tipo_pedido=tipo_pedido;
 		this.telefono=telefono;
 		this.anio=anio;
+		this.precio_pedido = precio_pedido;
+	}
+
+	public double getPrecio_pedido() {
+		return precio_pedido;
+	}
+
+	public void setPrecio_pedido(double precio_pedido) {
+		this.precio_pedido = precio_pedido;
 	}
 
 	public String getNombre() {

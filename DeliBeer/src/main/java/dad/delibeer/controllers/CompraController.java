@@ -23,7 +23,12 @@ public class CompraController {
 	
 	@GetMapping("/compra")
 	public String compra(Model model, @RequestParam String tipo) {
+		List<PackCerveza> pack = packs.findByNombre(tipo);
+		PackCerveza cerve = pack.get(0);
+		double precio = cerve.getPrecio();
 		model.addAttribute("tipo", tipo);
+		model.addAttribute("precio", precio);
+		
 		return "compra";
 	}
 }

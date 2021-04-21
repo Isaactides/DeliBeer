@@ -39,10 +39,14 @@ public class pruebaMain {
 					
 					Pedido p = (Pedido) ois.readObject();
 					String mail = (String) ois.readObject();
+					
+					//generar pdf
 					generarPDF(mail, p);
 					System.out.println(mail);
 					System.out.println(p.getApellidos());
 					
+					//mandar correo
+					mandarCorreo(mail);
 					ois.close();
 					socket.close();
 					is.close();
@@ -72,6 +76,7 @@ public class pruebaMain {
 	         document.add(new Paragraph("Datos de su pedido en Delibeer"));
 	         document.add(new Paragraph("Pedido realizado por: " + p.getNombre() + " " + p.getApellidos()));
 	         document.add(new Paragraph("Ha comprado un pack " + p.getTipo_pedido() + " a un precio de: " + p.getPrecio_pedido()));
+	         
 	         document.close();
 	         writer.close();
 	      } catch (DocumentException e)
@@ -84,54 +89,74 @@ public class pruebaMain {
 		
 	}
 	
-//	public static void mandarCorreo() {
-//		String to="XYZ@abc.com"; //Email address of the recipient
-//        final String user="ABC@XYZ.com"; //Email address of sender
-//        final String password="xxxxx";  //Password of the sender's email
-//
-//        //Get the session object      
-//        Properties properties = System.getProperties();  
-//
-//        //Here pass your smtp server url
-//        properties.setProperty("mail.smtp.host", "mail.javatpoint.com");   
-//        properties.put("mail.smtp.auth", "true");    
-//
-//        Session session = Session.getDefaultInstance(properties,   
-//                new javax.mail.Authenticator() {   
-//            protected PasswordAuthentication getPasswordAuthentication() {   
-//                return new PasswordAuthentication(user,password);    }   });       
-//
-//        //Compose message      
-//        try{    
-//            MimeMessage message = new MimeMessage(session);    
-//            message.setFrom(new InternetAddress(user));     
-//            message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));    
-//            message.setSubject("Message Aleart");         
-//
-//            //Create MimeBodyPart object and set your message text        
-//            BodyPart messageBodyPart1 = new MimeBodyPart();     
-//            messageBodyPart1.setText("This is message body");          
-//
-//            //Create new MimeBodyPart object and set DataHandler object to this object        
-//            MimeBodyPart messageBodyPart2 = new MimeBodyPart();      
-//            String filename = "YourPDFFileName.pdf";//change accordingly     
-//            DataSource source = new FileDataSource(filename);    
-//            messageBodyPart2.setDataHandler(new DataHandler(source));    
-//            messageBodyPart2.setFileName(filename);             
-//
-//            //Create Multipart object and add MimeBodyPart objects to this object        
-//            Multipart multipart = new MimeMultipart();    
-//            multipart.addBodyPart(messageBodyPart1);     
-//            multipart.addBodyPart(messageBodyPart2);      
-//
-//            //Set the multiplart object to the message object    
-//            message.setContent(multipart );        
-//
-//            //Send message    
-//            Transport.send(message);      
-//            System.out.println("message sent....");   
-//
-//        }catch (MessagingException ex) {ex.printStackTrace();}
-//	}
+	public static void mandarCorreo(String mail) {
+		
+        String to = mail;
+        
+        String from = "delibeerdad@gmail.com";
 
+        String host = "smtp.gmail.com";
+
+        Properties properties = System.getProperties();
+
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.ssl.enable", "true");
+        properties.put("mail.smtp.auth", "true");
+
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+
+            protected PasswordAuthentication getPasswordAuthentication() {
+
+                return new PasswordAuthentication("delibeerdad@gmail.com", "delibeercorreo1");
+
+            }
+
+        });
+        try {
+            
+            MimeMessage message = new MimeMessage(session);
+
+            
+            message.setFrom(new InternetAddress(from));
+
+            
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+            
+            message.setSubject("Recibo de compra en Delibeer");
+
+            Multipart multipart = new MimeMultipart();
+
+            MimeBodyPart attachmentPart = new MimeBodyPart();
+
+            MimeBodyPart textPart = new MimeBodyPart();
+
+            try {
+
+                File f =new File("Pedido.pdf");
+
+                attachmentPart.attachFile(f);
+                textPart.setText("Gracias por comprar en delibeer, aqui está su recibo:");
+                multipart.addBodyPart(textPart);
+                multipart.addBodyPart(attachmentPart);
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
+            message.setContent(multipart);
+
+            System.out.println("enviando mensaje...");
+
+            Transport.send(message);
+            System.out.println("Mensaje enviado ....");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+        }
+
+    }
 }
+

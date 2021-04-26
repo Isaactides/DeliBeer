@@ -50,7 +50,7 @@ public class VisPackController {
 		model.addAttribute("pack", pack);
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		model.addAttribute("user", request.isUserInRole("USER"));
-		return "/administrador";
+		return "administrador";
 	}
 	
 	@PostMapping("/administrador")

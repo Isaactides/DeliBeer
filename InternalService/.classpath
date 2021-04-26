@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/isaac/Desktop/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/isaac/Desktop/itextpdf-5.5.13.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/isaac/Desktop/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ivan Lopez/Desktop/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ivan Lopez/Desktop/itextpdf-5.5.13.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ivan Lopez/Desktop/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

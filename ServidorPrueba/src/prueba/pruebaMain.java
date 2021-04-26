@@ -18,8 +18,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-//import dad.delibeer.model.Pedido;
-
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*; 
@@ -40,8 +38,8 @@ public class pruebaMain {
 					Socket socket = server.accept();
 					InputStream is = socket.getInputStream();
 					ObjectInputStream ois = new ObjectInputStream(is);
-					DataInputStream dataInputStream = new DataInputStream(is);
-					DataInputStream mailInputStream = new DataInputStream(is);
+//					DataInputStream dataInputStream = new DataInputStream(is);
+//					DataInputStream mailInputStream = new DataInputStream(is);
 					
 					/*
 					String nombre = (String) ois.readObject();
@@ -52,36 +50,29 @@ public class pruebaMain {
 					
 					
 					
-					String mail = mailInputStream.readUTF();
-					String total = dataInputStream.readUTF();
+//					String mail = mailInputStream.readUTF();
+//					String total = dataInputStream.readUTF();
 					
 					//Pedido p = new Pedido(nombre, apellido, "", tipoPedido, 1111, 1111, precio);
-					
+					String[] array = (String[]) ois.readObject();
 					
 					//generar pdf
-					generarPDF(mail, total);
-					System.out.println(mail);
+					generarPDF(array[1], array[0]);
+					//System.out.println(mail);
 					//System.out.println(p.getApellidos());
 					
 					//mandar correo
-					mandarCorreo(mail);
+					mandarCorreo(array[1]);
 					ois.close();
-					mailInputStream.close();
-					dataInputStream.close();
+//					mailInputStream.close();
+//					dataInputStream.close();
 					socket.close();
 					is.close();
-					
-					socket = server.accept();
-					PrintWriter writer = new PrintWriter(socket.getOutputStream(),true);
-					File f = new File("Pedido.pdf");
-					writer.print(f.toURL());
-					writer.close();
-					socket.close();
-					
+									
 					
 				}
-			}catch (IOException e) {
-				System.out.print(e);
+			}catch (IOException | ClassNotFoundException e) {
+				System.out.print("HOLA HOLA HOLA " + e);
 			}
 
 	}

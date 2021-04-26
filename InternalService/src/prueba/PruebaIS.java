@@ -39,41 +39,21 @@ public class PruebaIS {
 				Socket socket = server.accept();
 				InputStream is = socket.getInputStream();
 				ObjectInputStream ois = new ObjectInputStream(is);
-//				DataInputStream dataInputStream = new DataInputStream(is);
-//				DataInputStream mailInputStream = new DataInputStream(is);
-				
-				/*
-				String nombre = (String) ois.readObject();
-				String apellido = (String) ois.readObject();
-				String tipoPedido = (String) ois.readObject();
-				Double precio = (Double) ois.readObject();
-				*/
-				
-				
-				
-//				String mail = mailInputStream.readUTF();
-//				String total = dataInputStream.readUTF();
-				
-				//Pedido p = new Pedido(nombre, apellido, "", tipoPedido, 1111, 1111, precio);
 				String[] array = (String[]) ois.readObject();
 				
 				//generar pdf
 				generarPDF(array[1], array[0]);
-				//System.out.println(mail);
-				//System.out.println(p.getApellidos());
 				
 				//mandar correo
 				mandarCorreo(array[1]);
 				ois.close();
-//				mailInputStream.close();
-//				dataInputStream.close();
+
 				socket.close();
 				is.close();
-				
-				
+								
 			}
 		}catch (IOException | ClassNotFoundException e) {
-			System.out.print("HOLA HOLA HOLA " + e.getMessage());
+			System.out.print(e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -86,9 +66,6 @@ public static void generarPDF(String mail, String s) throws IOException {
       {
          PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Pedido.pdf"));
          document.open();
-         //document.add(new Paragraph("Datos de su pedido en Delibeer"));
-         //document.add(new Paragraph("Pedido realizado por: " + p.getNombre() + " " + p.getApellidos()));
-         //document.add(new Paragraph("Ha comprado un pack " + p.getTipo_pedido() + " a un precio de: " + p.getPrecio_pedido()));
          
          document.add(new Paragraph(s));
          

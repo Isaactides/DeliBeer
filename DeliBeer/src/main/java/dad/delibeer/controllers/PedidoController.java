@@ -45,9 +45,13 @@ public class PedidoController {
 		model.addAttribute("mail", user.getMail());
 		model.addAttribute("pedido", pedido);
 		ServicioInterno si = new ServicioInterno();
+		String nombre = pedido.getNombre();
+		String apellido = pedido.getApellidos();
+		String tipo = pedido.getTipo_pedido();
+		Double precio = pedido.getPrecio_pedido();
 		
-		si.enviar(pedido, user.getMail());
-		si.recibir();
+		si.enviar(nombre, apellido, tipo, precio, user.getMail());
+		
 		return "comprado";	
 	}
 	

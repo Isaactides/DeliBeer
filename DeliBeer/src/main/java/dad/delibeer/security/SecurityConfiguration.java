@@ -29,15 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	    	
 			auth.authenticationProvider(authenticationProvider);
-			
-		
-	    	/*// Enable default password encoder (mandatory since Spring Security 5 to avoid storing passwords in plain text)
-	    	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-	        
-	    	// User
-	        auth.inMemoryAuthentication().withUser("user").password(encoder.encode("pass")).roles("USER");
-	        auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("adminpass")).roles("ADMIN");
-	    	*/	    	
+	    	
 	    }
 	
     @Override

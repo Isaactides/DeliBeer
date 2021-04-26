@@ -1,5 +1,6 @@
 package prueba;
 
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,11 +18,13 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import dad.delibeer.model.Pedido;
+//import dad.delibeer.model.Pedido;
 
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*; 
+
+
 
 
 
@@ -33,21 +36,38 @@ public class pruebaMain {
 			try {
 				ServerSocket server = new ServerSocket(puerto);
 				while(true) {
+					
 					Socket socket = server.accept();
 					InputStream is = socket.getInputStream();
 					ObjectInputStream ois = new ObjectInputStream(is);
+					DataInputStream dataInputStream = new DataInputStream(is);
+					DataInputStream mailInputStream = new DataInputStream(is);
 					
-					Pedido p = (Pedido) ois.readObject();
-					String mail = (String) ois.readObject();
+					/*
+					String nombre = (String) ois.readObject();
+					String apellido = (String) ois.readObject();
+					String tipoPedido = (String) ois.readObject();
+					Double precio = (Double) ois.readObject();
+					*/
+					
+					
+					
+					String mail = mailInputStream.readUTF();
+					String total = dataInputStream.readUTF();
+					
+					//Pedido p = new Pedido(nombre, apellido, "", tipoPedido, 1111, 1111, precio);
+					
 					
 					//generar pdf
-					generarPDF(mail, p);
+					generarPDF(mail, total);
 					System.out.println(mail);
-					System.out.println(p.getApellidos());
+					//System.out.println(p.getApellidos());
 					
 					//mandar correo
 					mandarCorreo(mail);
 					ois.close();
+					mailInputStream.close();
+					dataInputStream.close();
 					socket.close();
 					is.close();
 					
@@ -60,22 +80,24 @@ public class pruebaMain {
 					
 					
 				}
-			}catch (IOException | ClassNotFoundException e) {
+			}catch (IOException e) {
 				System.out.print(e);
 			}
 
 	}
 	
 	
-	public static void generarPDF(String mail, Pedido p) throws IOException {
+	public static void generarPDF(String mail, String s) throws IOException {
 		Document document = new Document();
 	      try
 	      {
 	         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Pedido.pdf"));
 	         document.open();
-	         document.add(new Paragraph("Datos de su pedido en Delibeer"));
-	         document.add(new Paragraph("Pedido realizado por: " + p.getNombre() + " " + p.getApellidos()));
-	         document.add(new Paragraph("Ha comprado un pack " + p.getTipo_pedido() + " a un precio de: " + p.getPrecio_pedido()));
+	         //document.add(new Paragraph("Datos de su pedido en Delibeer"));
+	         //document.add(new Paragraph("Pedido realizado por: " + p.getNombre() + " " + p.getApellidos()));
+	         //document.add(new Paragraph("Ha comprado un pack " + p.getTipo_pedido() + " a un precio de: " + p.getPrecio_pedido()));
+	         
+	         document.add(new Paragraph(s));
 	         
 	         document.close();
 	         writer.close();

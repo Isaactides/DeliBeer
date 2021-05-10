@@ -13,10 +13,10 @@ public class ServicioInterno {
 	public void enviar(String nombre, String apellido, String tipo, Double precio, String mail) {
 		Socket cliente;
 		int puerto = 9000;
-		String ip = "127.0.0.1";
+		//String ip = "127.0.0.1";
 
 		try {
-			cliente = new Socket(ip, puerto);
+			cliente = new Socket("server", puerto);
 			OutputStream os = cliente.getOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 	

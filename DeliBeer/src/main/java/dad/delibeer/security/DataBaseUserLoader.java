@@ -17,8 +17,14 @@ public class DataBaseUserLoader {
 	@PostConstruct
 	private void initDataBase() {
 		
-		userRepository.save(new User("user", "pass", "user@user.com", "ROLE_USER"));
-		userRepository.save(new User("admin", "adminpass","admin@admin.com", "ROLE_ADMIN"));
+		if (userRepository.findByName("user") != null) {}
+		else {
+		userRepository.save(new User("user", "pass", "user@user.com", "ROLE_USER"));}
+		
+		if (userRepository.findByName("admin") != null) {}
+		else {
+		userRepository.save(new User("admin", "adminpass","admin@admin.com", "ROLE_ADMIN"));}
 	}
 	
 }
+

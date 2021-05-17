@@ -29,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import dad.delibeer.model.Comentario;
 import dad.delibeer.model.PackCerveza;
+import dad.delibeer.model.User;
 import dad.delibeer.repositories.ComentarioRepository;
 import dad.delibeer.repositories.PackRepository;
 

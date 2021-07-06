@@ -63,5 +63,34 @@ Los pack de cervezas serán los siguientes:
 
 ![image](https://user-images.githubusercontent.com/60182691/110465082-44c33d00-80d4-11eb-9bcd-49c775e96591.png)
 
+## Instrucciones para desplegar la aplicación:
+
+1.- Arrancar el contenedor de docker con mysql 
+ 
+	docker run --rm -e MYSQL_ROOT_PASSWORD=PASSWORD \
+	-e MYSQL_DATABASE=NOMBREBD -p 3306:3306 -d mysql:8.0.22
+ 
+2.- Clonar el repositorio actual
+ 
+3.- Acceder al directorio ejecutables/ y ejecutar los siguientes comandos:
+ 
+	java -jar periftech-0.0.1-SNAPSHOT.jar 
+ 
+	java -jar ServicioInterno-0.0.1-SNAPSHOT.jar
+
+5.- Acceder a localhost:9090/ y utilizar la aplicación
+
+# FASE 4
+
+## Instrucciones
+Asumiendo que tenemos las imágenes de periftech y servicio-interno (haciendo "docker build -t nombreImagen . " en la correspondiente carpeta /target), sólo tendríamos que ejecutar
+
+	docker-compose up -d
+
+Y ya tendríamos todo lo necesario para utilizar nuestra aplicación desde localhost:8888 (nuestro balanceador)
+
+## Video demo de la web:
+
+https://www.youtube.com/watch?v=0j_bcQszfaw
 
 Integrantes del equipo de desarrollo: (Isaac Timón de Santos - i.timon.2017@alumnos.urjc.es) ( Angel Colliga Garcia - aj.colliga.2017@alumnos.urjc.es) (Iván López Vázquez - i.lopezv.2017@alumnos.urjc.es) https://github.com/Isaactides/DeliBeer.git

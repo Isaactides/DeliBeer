@@ -17,6 +17,7 @@ import com.hazelcast.config.JoinConfig;
 import java.util.ArrayList;
 import java.util.List;
 
+@EnableCaching
 @SpringBootApplication
 public class DeliBeerApplication {
 

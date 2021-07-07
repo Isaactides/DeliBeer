@@ -20,6 +20,7 @@ public class DataBaseUserLoader {
 		
 		userRepository.save(new User("user", "pass", "user@user.com", "ROLE_USER"));
 		userRepository.save(new User("admin", "adminpass","admin@admin.com", "ROLE_ADMIN"));
+		
 	}
 	
 }

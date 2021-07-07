@@ -82,7 +82,7 @@ Los pack de cervezas serán los siguientes:
 # FASE 4
 
 ## Instrucciones
-Asumiendo que tenemos las imágenes de periftech y servicio-interno (haciendo "docker build -t nombreImagen . " en la correspondiente carpeta /target), sólo tendríamos que ejecutar
+Asumiendo que tenemos las imágenes de delibeer y servicio-interno (haciendo "docker build -t nombreImagen . " en la correspondiente carpeta /target), sólo tendríamos que ejecutar
 
 	docker-compose up -d
 

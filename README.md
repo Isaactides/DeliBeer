@@ -67,18 +67,17 @@ Los pack de cervezas serán los siguientes:
 
 1.- Arrancar el contenedor de docker con mysql 
  
-	docker run --rm -e MYSQL_ROOT_PASSWORD=PASSWORD \
-	-e MYSQL_DATABASE=NOMBREBD -p 3306:3306 -d mysql:8.0.22
+	docker run --name mysql-standalone --network puente -e MYSQL_ROOT_PASSWORD=delibeer -e MYSQL_DATABASE=packs -d mysql:5.6
  
 2.- Clonar el repositorio actual
  
 3.- Acceder al directorio ejecutables/ y ejecutar los siguientes comandos:
  
-	java -jar periftech-0.0.1-SNAPSHOT.jar 
+	java -jar delibeer-0.0.1-SNAPSHOT.jar
  
-	java -jar ServicioInterno-0.0.1-SNAPSHOT.jar
+	java -jar ServicioInterno.jar
 
-5.- Acceder a localhost:9090/ y utilizar la aplicación
+5.- Acceder a localhost:8443/ y utilizar la aplicación
 
 # FASE 4
 
